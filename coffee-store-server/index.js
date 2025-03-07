@@ -63,7 +63,7 @@ async function run() {
           name: updateCoffeeInfo.name,
           supplier: updateCoffeeInfo.supplier,
           category: updateCoffeeInfo.category,
-          chef: updateCoffeeInfo.catch,
+          chef: updateCoffeeInfo.chef,
           taste: updateCoffeeInfo.taste,
           details: updateCoffeeInfo.details,
           photo: updateCoffeeInfo.photo,
@@ -93,6 +93,17 @@ async function run() {
     app.get("/users", async (req, res) => {
       const cursor = userCollection.find();
       const result = await cursor.toArray();
+      res.send(result);
+    });
+
+    // Specific obj in data update or post
+    app.patch("/user", async (req, res) => {
+      const user = req.body;
+      const filter = { email: user.email };
+      const updatedDoc = {
+        $set: { lastLoggedAt: user.lastLoggedAt },
+      };
+      const result = await userCollection.updateOne(filter, updatedDoc);
       res.send(result);
     });
 

@@ -23,7 +23,9 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         console.log("Delete Confirm");
-        fetch(`http://localhost:9000/coffee/${_id}`, { method: "delete" })
+        fetch(`http://localhost:9000/coffee/${_id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

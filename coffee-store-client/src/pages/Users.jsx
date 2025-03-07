@@ -8,7 +8,7 @@ const Users = () => {
 
   const handleDelete = (id) => {
     fetch(`http://localhost:9000/user/${id}`, {
-      method: "Delete",
+      method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
@@ -99,7 +99,8 @@ const Users = () => {
                     <th>{idx + 1}</th>
                     <td>{user?.email}</td>
                     <td>{user?.createdAt || "N/A"}</td>
-                    <td></td>
+                    <td>{user?.lastLoggedAt || "N/A"}</td>
+
                     <td>
                       <button
                         onClick={() => handleDelete(user?._id)}
