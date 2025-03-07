@@ -28,14 +28,6 @@ async function run() {
     const coffeeCollection = client.db("coffeesDB").collection("coffees");
     const userCollection = client.db("coffeesDB").collection("users");
 
-    // User post in userCollection
-    app.post("/user", async (req, res) => {
-      const user = req.body;
-      console.log(user);
-      const result = await userCollection.insertOne(user);
-      res.send(result);
-    });
-
     //----------------- CRUD related api down below ---------------
     // post a single coffee
     app.post("/coffee", async (req, res) => {
@@ -86,6 +78,29 @@ async function run() {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
       const result = await coffeeCollection.deleteOne(query);
+      res.send(result);
+    });
+
+    //----------------- User CRUD related api down below ---------------
+    // User post in userCollection
+    app.post("/user", async (req, res) => {
+      const user = req.body;
+      const result = await userCollection.insertOne(user);
+      res.send(result);
+    });
+
+    // get the all users in usersCollection
+    app.get("/users", async (req, res) => {
+      const cursor = userCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    });
+
+    // Delete a single user in userCollection
+    app.delete("/user/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await userCollection.deleteOne(query);
       res.send(result);
     });
 
