@@ -26,7 +26,17 @@ async function run() {
     await client.connect();
 
     const coffeeCollection = client.db("coffeesDB").collection("coffees");
+    const userCollection = client.db("coffeesDB").collection("users");
 
+    // User post in userCollection
+    app.post("/user", async (req, res) => {
+      const user = req.body;
+      console.log(user);
+      const result = await userCollection.insertOne(user);
+      res.send(result);
+    });
+
+    //----------------- CRUD related api down below ---------------
     // post a single coffee
     app.post("/coffee", async (req, res) => {
       const newCoffee = req.body;

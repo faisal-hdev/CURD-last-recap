@@ -9,8 +9,21 @@ function App() {
 
   return (
     <>
+      <nav className="flex justify-end mx-auto py-10 mr-32">
+        <ul className="flex gap-4 font-bold">
+          <li>
+            <Link to="users">Users</Link>
+          </li>
+          <li>
+            <Link to="signUp">SignUp</Link>
+          </li>
+          <li>
+            <Link to="signIn">SignIn</Link>
+          </li>
+        </ul>
+      </nav>
       <div>
-        <div className="text-center py-20">
+        <div className="text-center pb-20">
           <span>--- Sip & Savor ---</span>
           <h2 className="text-3xl py-5">
             Our Popular Products : {coffees.length}
