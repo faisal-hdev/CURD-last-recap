@@ -23,7 +23,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         console.log("Delete Confirm");
-        fetch(`https://coffee-crud-server-alpha.vercel.app/${_id}`, {
+        fetch(`https://coffee-crud-server-alpha.vercel.app/coffee/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

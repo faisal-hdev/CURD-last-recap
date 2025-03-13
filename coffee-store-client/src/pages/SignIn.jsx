@@ -29,11 +29,13 @@ const SignIn = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
+            alert("sign in info updated in db");
           });
       })
       .catch((error) => {
         console.error(error);
       });
+    form.reset();
   };
 
   return (
