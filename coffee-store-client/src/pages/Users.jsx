@@ -7,7 +7,7 @@ const Users = () => {
   const [users, setUsers] = useState(loadedUsers);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:9000/user/${id}`, {
+    fetch(`https://coffee-crud-server-alpha.vercel.app/user/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -42,7 +42,7 @@ const Users = () => {
     //   }).then((result) => {
     //     if (result.isConfirmed) {
     //       console.log("Delete Confirm");
-    //       fetch(`http://localhost:9000/user/${_id}`, { method: "delete" })
+    //       fetch(`https://coffee-crud-server-alpha.vercel.app/user/${_id}`, { method: "delete" })
     //         .then((res) => res.json())
     //         .then((data) => {
     //           console.log(data);
@@ -60,8 +60,6 @@ const Users = () => {
     //   });
     // };
   };
-
-  console.log(users);
   return (
     <div>
       <Toaster position="top-right" reverseOrder={false} />

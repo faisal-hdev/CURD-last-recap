@@ -7,7 +7,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
 
   const handleDelete = (_id) => {
     console.log(_id);
-    // fetch(`http://localhost:9000/coffee/${_id}`, { method: "delete" })
+    // fetch(`https://coffee-crud-server-alpha.vercel.app/${_id}`, { method: "delete" })
     //   .then((res) => res.json())
     //   .then((data) => {
     //     console.log("Data is deleted", data);
@@ -23,7 +23,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         console.log("Delete Confirm");
-        fetch(`http://localhost:9000/coffee/${_id}`, {
+        fetch(`https://coffee-crud-server-alpha.vercel.app/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

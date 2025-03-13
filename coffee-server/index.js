@@ -5,8 +5,18 @@ const app = express();
 const port = process.env.PORT || 9000;
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
+const corsOptions = {
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "https://coffee-store-fcdc0.web.app",
+  ],
+  Credential: true,
+  optionSuccessStatus: 200,
+};
+
 // middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.s3zryfx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;

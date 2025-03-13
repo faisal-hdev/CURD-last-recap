@@ -22,10 +22,9 @@ const AddCoffee = () => {
       details,
       photo,
     };
-    console.log(coffeeInfo);
 
     // send data to the server
-    fetch("http://localhost:9000/coffee", {
+    fetch("https://coffee-crud-server-alpha.vercel.app/coffee", {
       method: "POST",
       headers: {
         "content-type": "application/json",
